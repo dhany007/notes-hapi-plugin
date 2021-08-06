@@ -1,13 +1,13 @@
 const { nanoid } = require('nanoid');
-const InvariantError = require('../../api/notes/exceptions/InvariantError');
-const NotFoundError = require('../../api/notes/exceptions/NotFoundError');
+const InvariantError = require('../../exceptions/InvariantError');
+const NotFoundError = require('../../exceptions/NotFoundError');
 
 class NotesServices {
   constructor() {
     this._notes = [];
   }
 
-  addNote({ title, tags, body }) {
+  addNote({ title, body, tags }) {
     const id = nanoid(16);
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
